@@ -1,0 +1,1 @@
+const communicator = Ice.initialize();
