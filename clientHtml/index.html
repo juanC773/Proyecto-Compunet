@@ -1,16 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chat Web</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Para usar iconos de Font Awesome -->
 </head>
 <body>
-    <p id="helloMessage"></p>
-    <h1>hhh</h1>
+    <div class="container">
+        <div class="sidebar">
+            <div class="search">
+                <input type="text" placeholder="Buscar">
+            </div>
+            <div class="users">
+                <div class="user">
+                    <img src="https://bolt-gcdn.sc-cdn.net/3/sKB9ehlg1gANYEOpjMTfg?bo=EhgaABoAMgF9OgEEQgYIlrvy8AVIAlASYAE%3D&uc=18" alt="Usuario 1">
+                    <span>Bart Simpson</span>
+                </div>
+                <div class="user">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxuLAK2X7rQWpNlRA1NWf5t9i2ZxTnpqJx9tWlkfp8yQ&s" alt="Usuario 2">
+                    <span>Gumball Watterson</span>
+                </div>
 
+
+                <div class="user">
+                    <img src="https://pm1.aminoapps.com/6978/bd5d6a33b65e0282ece23900da672a41b70a7678r1-459-519v2_hq.jpg" alt="Usuario 1">
+                    <span>Darwin Watterson</span>
+                </div>
+
+
+                <div class="user">
+                    <img src="https://image.tensorartassets.com/users/common/avatar/685440221952780452/df8cb992-1274-3a05-78d7-45ee1cf73419.png" alt="Usuario 1">
+                    <span>Como Tan Muchachos</span>
+                </div>
+
+
+                <div class="user">
+                    <img src="https://i.pinimg.com/736x/66/c2/3b/66c23b965717d02b0c8ea77896f35661.jpg" alt="Usuario 1">
+                    <span>Clarence</span>
+                </div>
+                
+
+
+                <!-- Agrega más usuarios aquí -->
+            </div>
+            <div class="logged-in-user">
+                <img src="logged_in_user.jpg" alt="Usuario logeado">
+                <button>Salir</button>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="header">
+                <div class="call-options">
+                    <!-- Agrega iconos o botones para opciones de llamada aquí -->
+                    <button class="call-audio"></button>
+                </div>
+                <img src="https://bolt-gcdn.sc-cdn.net/3/sKB9ehlg1gANYEOpjMTfg?bo=EhgaABoAMgF9OgEEQgYIlrvy8AVIAlASYAE%3D&uc=18" alt="Usuario">
+                <span>Bart Simpson</span>
+            </div>
+            <div class="messages">
+                <!-- Mensajes -->
+            </div>
+          
+            <div class="send-message">
+                <input type="text" placeholder="Escribe un mensaje">
+            </div>
+            <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+            
+            
+
+
+        </div>
+    </div>
 </body>
 </html>
+
 
 
 

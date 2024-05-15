@@ -1,0 +1,209 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    background-color: #e6f7ff; /* Cambio de color de fondo */
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #131c21; /* Cambio de color de fondo a negro similar al de Telegram */
+    border-right: 1px solid #2e3a3f; /* Cambio de color del borde */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+
+.chat {
+    background-image: url('https://i.pinimg.com/originals/20/99/f2/2099f2dda704cb708fe20347afb964ba.jpg');
+    background-size: contain; /* Esto hace que la imagen de fondo cubra todo el contenedor */
+    background-position: center; /* Esto centra la imagen de fondo */
+
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    
+}
+
+
+.search input {
+    width: 100%;
+    padding: 10px;
+  
+    box-sizing: border-box;
+    
+    background-color: #2e3a3f; /* Cambio de color de fondo de la barra de búsqueda a negro similar al de Telegram */
+    border: 1px solid transparent; /* Elimina el borde del botón y lo hace transparente */
+    border-radius: 20px; /* Hace los bordes más redondos */
+
+    width: 100%;
+}
+
+.users {
+    overflow-y: auto;
+    max-height: calc(100vh - 220px);
+    margin-top: 10px;
+    
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px; /* Bordes redondeados */
+    
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user span {
+    font-size: 15px; /* Reducción del tamaño de fuente para que se ajuste al estilo de Telegram */
+    font-weight: normal; /* Cambio de peso de fuente a normal */
+    color: #d9d9d9; /* Color del texto */
+}
+
+
+
+.user:hover {
+    background-color: #7e57c2; /* Color morado similar al de Telegram */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+
+
+.logged-in-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logged-in-user {
+    margin-top: 80%; /* Empuja al final de la barra lateral */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #2e3a3f; /* Cambio de color de la línea superior */
+}
+
+.logged-in-user button {
+    background-color: #b5acac; /* Color de fondo del botón similar al de Telegram */
+    color: #fff; /* Color del texto */
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #131c21; /* Color vibrante */
+    color: #fff; /* Texto en blanco */
+}
+
+
+
+.call-options button {
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente */
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.header span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+
+.messages {
+    overflow-y: auto;
+    max-height: calc(100vh - 290px); /* Ajusta la altura máxima */
+    margin-bottom: 20px;
+}
+
+.message {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Espaciado entre mensajes */
+}
+
+.send-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: #2e3a3f;
+    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    
+
+}
+
+.send-message input {
+    flex-grow: 1;
+    padding: 15px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 30px;
+    background-color: #2e3a3f;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+
+
+}
+
+.send-button {
+    background-color: #7e57c2;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Espacio entre el campo de texto y el botón de enviar */
+}
+
+.send-button:hover {
+    background-color: #5e35b1;
+}
