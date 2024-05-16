@@ -1,0 +1,28 @@
+{
+  "name": "proyecto-compunet",
+  "version": "1.0.0",
+  "description": "online store application",
+  "main": "src/server/server.js",
+  "scripts": {
+    "start": "nodemon --watch src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanC773/Proyecto-Compunet.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "piececontrol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanC773/Proyecto-Compunet/issues"
+  },
+  "homepage": "https://github.com/juanC773/Proyecto-Compunet#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  },
+  "type": "module"
+}
