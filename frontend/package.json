@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "webpack": "^5.91.0"
+  }
+}
