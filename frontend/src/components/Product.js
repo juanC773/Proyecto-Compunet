@@ -1,6 +1,6 @@
 function Product(product) {
     const container = document.createElement('div');
-    container.classList.add('product-' + product.id);
+    container.classList.add('product-container');
 
     const thumbnail = document.createElement('img');
     thumbnail.src = product.thumbnail;
@@ -24,6 +24,7 @@ function Product(product) {
     container.appendChild(description);
 
     const price = document.createElement('p');
+    price.classList.add('price');
     price.textContent = `Price: $${product.price}`;
     container.appendChild(price);
 
@@ -36,6 +37,7 @@ function Product(product) {
     container.appendChild(stock);
 
     const discount = document.createElement('p');
+    discount.classList.add('discount');
     discount.textContent = `Discount: ${product.discountPercentage}%`;
     container.appendChild(discount);
 
