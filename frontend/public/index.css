@@ -35,8 +35,8 @@ h1 {
 
 
 .title-container {
-    margin-top: 100px; /* Ajusta este valor según sea necesario */
-    margin-left: 700px;
+    margin-top: 120px; /* Ajusta este valor según sea necesario */
+    margin-left: 690px;
 }
 
 .main-title {
@@ -53,7 +53,7 @@ h1 {
     color: #555;
     margin-left: 0px; /* Ajusta este valor según sea necesario */
     margin-top: 0px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 
 .gradient-text {
@@ -63,6 +63,8 @@ h1 {
     color: transparent;
     
 }
+
+
 
 
 
@@ -184,15 +186,59 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
-.pie-pagina .grupo-1 .box figure img {
+.pie-pagina .grupo-1 .box figure img{
     width: 250px; /* Corrigiendo el espacio innecesario */
     height: 250px;
+    margin-top: 0;
 }
 
 .pie-pagina .grupo-1 .box h2 {
+    margin-top: 10px;
     color: #706969;
     margin-bottom: 25px;
     font-size: 20px; /* Corrigiendo el espacio innecesario */
+}
+
+
+
+.pie-pagina .grupo-1 .red-social-footer a{
+
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: #706969;
+  margin-right: 10px;
+  background-color: #d0cfcd;
+  text-align: center;
+  transition: all;
+  border-radius: 10px;  
+}
+
+
+
+.pie-pagina .grupo-2{
+
+    background-color: #ddd;
+    padding: 15px 10px;
+    text-align: center;
+    color: #000000;
+}
+
+.pie-pagina .grupo-2 small{
+
+    font-size: 15px;
+
+}    
+
+
+
+.pie-pagina-gradiente {
+    background: -webkit-linear-gradient(#ff3300, #ffb168);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
