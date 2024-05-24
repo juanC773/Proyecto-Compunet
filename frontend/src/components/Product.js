@@ -2,6 +2,12 @@ function Product(product) {
     const container = document.createElement('div');
     container.classList.add('product-container');
 
+    // Crear el título y añadirlo al contenedor
+    const title = document.createElement('h2');
+    title.textContent = product.title;
+    title.classList.add('product-title'); // Añadir una clase para estilos
+    container.appendChild(title);
+
     const thumbnail = document.createElement('img');
     thumbnail.src = product.thumbnail;
     thumbnail.alt = product.title;
@@ -10,13 +16,8 @@ function Product(product) {
     const info = document.createElement('div');
     info.classList.add('product-info');
     
-    const title = document.createElement('h2');
-    title.textContent = product.title;
-    info.appendChild(title);
 
-    const brand = document.createElement('p');
-    brand.textContent = `Brand: ${product.brand}`;
-    info.appendChild(brand);
+  
 
     const category = document.createElement('p');
     category.textContent = `Category: ${product.category}`;
@@ -31,18 +32,11 @@ function Product(product) {
     price.textContent = `Price: $${product.price}`;
     info.appendChild(price);
 
-    const rating = document.createElement('p');
-    rating.textContent = `Rating: ${product.rating}`;
-    info.appendChild(rating);
 
     const stock = document.createElement('p');
     stock.textContent = `Stock: ${product.stock}`;
     info.appendChild(stock);
 
-    const discount = document.createElement('p');
-    discount.classList.add('discount');
-    discount.textContent = `Discount: ${product.discountPercentage}%`;
-    info.appendChild(discount);
 
     container.appendChild(info);
 
