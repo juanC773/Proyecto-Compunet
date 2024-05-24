@@ -96,6 +96,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 13px;
     justify-items: center;
+
 }
 
 .product-container {
@@ -105,6 +106,7 @@ main {
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s ease;
+
 }
 
 .product-container:hover {
@@ -147,14 +149,20 @@ main {
 
 .product-info .price {
     font-size: 1.2em;
-    font-weight: bold;
-    color: #e74c3c;
+    
+    background-image: linear-gradient(to right, #000000, #259600); /* Cambia los colores según desees */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+   
 }
 
-.product-info .discount {
-    color: #27ae60;
+/* Añadir esto a tu archivo CSS existente */
+.info-label {
     font-weight: bold;
+    color: #000;
 }
+
 
 
 /* Estilos para ocultar el título en hover */
@@ -169,6 +177,9 @@ main {
 .product-container:hover .product-title {
     opacity: 0;
 }
+
+
+
 
 /* Pie de página */
 .pie-pagina {

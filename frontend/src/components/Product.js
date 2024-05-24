@@ -16,27 +16,24 @@ function Product(product) {
     const info = document.createElement('div');
     info.classList.add('product-info');
     
+    const createInfoElement = (label, value) => {
+        const element = document.createElement('p');
+        element.innerHTML = `<span class="info-label">${label}:</span> ${value}`;
+        return element;
+    };
 
-  
-
-    const category = document.createElement('p');
-    category.textContent = `Category: ${product.category}`;
+    const category = createInfoElement('Category', product.category);
     info.appendChild(category);
 
-    const description = document.createElement('p');
-    description.textContent = `Description: ${product.description}`;
+    const description = createInfoElement('Description', product.description);
     info.appendChild(description);
 
-    const price = document.createElement('p');
+    const price = createInfoElement('Price', `$${product.price}`);
     price.classList.add('price');
-    price.textContent = `Price: $${product.price}`;
     info.appendChild(price);
 
-
-    const stock = document.createElement('p');
-    stock.textContent = `Stock: ${product.stock}`;
+    const stock = createInfoElement('Stock', product.stock);
     info.appendChild(stock);
-
 
     container.appendChild(info);
 
