@@ -7,39 +7,44 @@ function Product(product) {
     thumbnail.alt = product.title;
     container.appendChild(thumbnail);
 
+    const info = document.createElement('div');
+    info.classList.add('product-info');
+    
     const title = document.createElement('h2');
     title.textContent = product.title;
-    container.appendChild(title);
+    info.appendChild(title);
 
     const brand = document.createElement('p');
     brand.textContent = `Brand: ${product.brand}`;
-    container.appendChild(brand);
+    info.appendChild(brand);
 
     const category = document.createElement('p');
     category.textContent = `Category: ${product.category}`;
-    container.appendChild(category);
+    info.appendChild(category);
 
     const description = document.createElement('p');
     description.textContent = `Description: ${product.description}`;
-    container.appendChild(description);
+    info.appendChild(description);
 
     const price = document.createElement('p');
     price.classList.add('price');
     price.textContent = `Price: $${product.price}`;
-    container.appendChild(price);
+    info.appendChild(price);
 
     const rating = document.createElement('p');
     rating.textContent = `Rating: ${product.rating}`;
-    container.appendChild(rating);
+    info.appendChild(rating);
 
     const stock = document.createElement('p');
     stock.textContent = `Stock: ${product.stock}`;
-    container.appendChild(stock);
+    info.appendChild(stock);
 
     const discount = document.createElement('p');
     discount.classList.add('discount');
     discount.textContent = `Discount: ${product.discountPercentage}%`;
-    container.appendChild(discount);
+    info.appendChild(discount);
+
+    container.appendChild(info);
 
     return container;
 }
