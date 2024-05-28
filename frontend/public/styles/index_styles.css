@@ -33,7 +33,7 @@ h1 {
 }
 
 .title-container {
-    margin-top: 120px; /* Ajusta este valor según sea necesario */
+    margin-top: 120px; 
     margin-left: 690px;
 }
 
@@ -49,20 +49,20 @@ h1 {
 .subtext {
     font-size: 19px;
     color: #555;
-    margin-left: 0px; /* Ajusta este valor según sea necesario */
+    margin-left: 0px; 
     margin-top: 0px;
     margin-bottom: 120px;
 }
 
 .gradient-text {
-    background-image: linear-gradient(to right, #ff0000, #edebe8); /* Cambia los colores según desees */
+    background-image: linear-gradient(to right, #ff0000, #edebe8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 #corazon {
-    background-image: linear-gradient(to right, #ff0000, #edebe8); /* Cambia los colores según desees */
+    background-image: linear-gradient(to right, #ff0000, #edebe8); 
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -153,14 +153,14 @@ main {
 .product-info .price {
     font-size: 1.2em;
     
-    background-image: linear-gradient(to right, #000000, #259600); /* Cambia los colores según desees */
+    background-image: linear-gradient(to right, #000000, #259600); 
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
    
 }
 
-/* Añadir esto a tu archivo CSS existente */
+
 .info-label {
     font-weight: bold;
     color: #000;
@@ -168,7 +168,7 @@ main {
 
 
 
-/* Estilos para ocultar el título en hover */
+
 .product-title {
     font-size: 16px;
     margin: 10px 0;
