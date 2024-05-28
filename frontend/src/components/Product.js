@@ -2,44 +2,40 @@ function Product(product) {
     const container = document.createElement('div');
     container.classList.add('product-container');
 
+    // Crear el título y añadirlo al contenedor
+    const title = document.createElement('h2');
+    title.textContent = product.title;
+    title.classList.add('product-title'); // Añadir una clase para estilos
+    container.appendChild(title);
+
     const thumbnail = document.createElement('img');
     thumbnail.src = product.thumbnail;
     thumbnail.alt = product.title;
     container.appendChild(thumbnail);
 
-    const title = document.createElement('h2');
-    title.textContent = product.title;
-    container.appendChild(title);
+    const info = document.createElement('div');
+    info.classList.add('product-info');
+    
+    const createInfoElement = (label, value) => {
+        const element = document.createElement('p');
+        element.innerHTML = `<span class="info-label">${label}:</span> ${value}`;
+        return element;
+    };
 
-    const brand = document.createElement('p');
-    brand.textContent = `Brand: ${product.brand}`;
-    container.appendChild(brand);
+    const category = createInfoElement('Category', product.category);
+    info.appendChild(category);
 
-    const category = document.createElement('p');
-    category.textContent = `Category: ${product.category}`;
-    container.appendChild(category);
+    const description = createInfoElement('Description', product.description);
+    info.appendChild(description);
 
-    const description = document.createElement('p');
-    description.textContent = `Description: ${product.description}`;
-    container.appendChild(description);
-
-    const price = document.createElement('p');
+    const price = createInfoElement('Price', `$${product.price}`);
     price.classList.add('price');
-    price.textContent = `Price: $${product.price}`;
-    container.appendChild(price);
+    info.appendChild(price);
 
-    const rating = document.createElement('p');
-    rating.textContent = `Rating: ${product.rating}`;
-    container.appendChild(rating);
+    const stock = createInfoElement('Stock', product.stock);
+    info.appendChild(stock);
 
-    const stock = document.createElement('p');
-    stock.textContent = `Stock: ${product.stock}`;
-    container.appendChild(stock);
-
-    const discount = document.createElement('p');
-    discount.classList.add('discount');
-    discount.textContent = `Discount: ${product.discountPercentage}%`;
-    container.appendChild(discount);
+    container.appendChild(info);
 
     return container;
 }
