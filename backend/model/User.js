@@ -6,6 +6,7 @@ class User {
         this.name = name;
         this.username = username;
         this.password = encryptPassword(password);
+        this.userType = "user";
         this.cart = new Cart();
     }
 
