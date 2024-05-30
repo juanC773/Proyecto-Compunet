@@ -1,9 +1,11 @@
 import ProductsView from "./layout/ProductsView.js";
+import CartView from "./layout/CartView.js";
 
-async function displayProducts() {
-    let res = await ProductsView();
+async function displayView(view) {
+    let res = await view();
     const $root = document.querySelector('#root');
     $root.appendChild(res);
 }
 
-displayProducts()
+// displayView(ProductsView)
+displayView(CartView)
