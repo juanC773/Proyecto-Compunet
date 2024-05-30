@@ -1,3 +1,5 @@
+import { addProductToCart } from "../services/CartServices.js";
+
 function Product(product) {
     const container = document.createElement('div');
     container.classList.add('product-container');
@@ -36,6 +38,11 @@ function Product(product) {
     info.appendChild(stock);
 
     container.appendChild(info);
+
+    const button = document.createElement('button');
+    button.textContent = 'Add to Cart';
+    button.onclick = () => addProductToCart("u0", product.id);
+    info.appendChild(button);
 
     return container;
 }

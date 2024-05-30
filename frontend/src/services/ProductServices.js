@@ -11,6 +11,23 @@ async function getProducts() {
     }
 }
 
+function addProduct(productData) {
+    async function addProductAsync(productData) {
+        const request = new Request('http://localhost:3000/products', {
+            method: 'POST',
+            body: productData, 
+        });
+        const response = await fetch(request);
+        if (response.ok) {
+            console.log('Producto añadido con éxito');
+        } else {
+            console.log('Error al añadir producto');
+        }
+    }
+    addProductAsync(productData);
+}
+
 export {
     getProducts,
+    addProduct,
 }

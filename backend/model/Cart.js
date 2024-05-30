@@ -14,12 +14,14 @@ class Cart {
 
     removeProduct(product) {
         this.products[product.id]--;
+        if(this.products[product.id] === 0) delete this.products[product.id];
     }
 
     toJSON() {
         const productList = [];
         for (const productId in this.products) {
             const product = getProductById(productId);
+            if(!product) continue;
             const productJSON = product.toJSON();
             productJSON["quantity"] = this.products[productId];
             productList.push(productJSON);

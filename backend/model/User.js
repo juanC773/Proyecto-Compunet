@@ -17,7 +17,11 @@ class User {
 
     addToCart(product) {
         this.cart.addProduct(product);
-        console.log(this.cart)
+    }
+
+    removeFromCart(product) {
+        this.cart.removeProduct(product);
+    
     }
 
     toJSON() {
