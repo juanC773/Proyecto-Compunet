@@ -110,11 +110,20 @@ main {
     overflow: hidden;
     transition: all 0.3s ease;
 
+
+    /* Ajusta tamaño de los contenedores */
+
+    width: 77%; /* Ajustar el ancho del contenedor */
+    max-width: 350px; /* Asegurarse de que no sea demasiado grande */
+    padding: 20px; 
+
 }
 
 .product-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+
 }
 
 .product-container img {
