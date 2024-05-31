@@ -8,15 +8,25 @@ router.get('/:username', async (req, res) => {
     const username = req.params.username;
     const user = getUserByUsername(username);
     console.log(user)
-    console.log(user.cart.toJSON())
     res.json({cart: user.cart.toJSON()});
 });
 
 router.post('/pay/:username', async (req, res) => {
     const {username} = req.params;
     const user = getUserByUsername(username);
-    user.addPaymentHistory();
-    res.json({cart: user.cart.toJSON()});
+
+    user.addPaymentHistory(req.body);
+  
+    res.json(user.getPaymentHistory());
+
+})
+
+
+router.post('/paymentHistory/:username', async (req, res) => {
+    const {username} = req.params;
+    const user = getUserByUsername(username);  
+    console.log(user.getPaymentHistory());
+    res.json(user.getPaymentHistory());
 })
 
 router.post('/:username/products/:productId', async (req, res) => {

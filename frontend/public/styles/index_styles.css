@@ -81,6 +81,9 @@ nav a:hover {
     transform: scale(1.1);
 }
 
+.spanFactura{
+    margin-top: 20px;
+}
 .social-link {
     color: #706969; /* Color por defecto */
     transition: color 0.3s; /* Transición suave */
@@ -111,6 +114,7 @@ main {
     transition: all 0.3s ease;
 
 }
+
 
 .product-container:hover {
     transform: translateY(-5px);

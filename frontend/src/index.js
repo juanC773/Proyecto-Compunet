@@ -2,8 +2,10 @@ import ProductsView from "./layout/ProductsView.js";
 import CartView from "./layout/CartView.js";
 import AddProductView from "./layout/AddProductView.js";
 import EditProductView from "./layout/EditProductView.js";
+import PaymentHistory from "./layout/PaymentHistory.js"
 
 import MainView from "./layout/MainView.js";
+import { addPaymentHistory } from "./services/CartServices.js";
 
 async function displayView(view) {
     let res = await view();
@@ -29,6 +31,8 @@ const setRoute = () => {
             break;
         case '#edit-product':
             displayView(EditProductView);
+        case '#payment-history':
+                displayView(PaymentHistory);
         break;
         default:
             displayView(MainView);

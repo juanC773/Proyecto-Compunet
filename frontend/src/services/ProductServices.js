@@ -39,7 +39,7 @@ function editProduct(data) {
             body: data
         });
     
-
+        
         const response = await fetch(request);
         if (response.ok) {
             alert('Stock modificado con éxito');
