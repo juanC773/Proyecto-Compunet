@@ -1,7 +1,8 @@
 import express from 'express';
 import axios from 'axios';
-import { addProduct, getAllProducts } from '../controller/products.js';
+import { addProduct, editProductStock, getAllProducts } from '../controller/products.js';
 import { upload } from '../util/multer.js';
+
 
 const router = express.Router();
 
@@ -27,6 +28,17 @@ router.post('/', upload.single('thumbnail'), async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al agregar un producto');
+    }
+})
+
+router.post('/edit', async (req, res) => {
+    try {
+        editProductStock(req.body)
+        console.log(getAllProducts())
+        res.json({message: 'Stock modificado 233'});
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al modificar el Stock');
     }
 })
 

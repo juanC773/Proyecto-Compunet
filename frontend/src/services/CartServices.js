@@ -29,6 +29,25 @@ function addProductToCart(username, productId) {
     return addProductToCartAsync(username, productId);
 }
 
+function addPaymentHistory(username){
+    async function addPaymentHistoryAsync(username){
+        try {
+            const response = await fetch(`http://localhost:3000/cart/pay/${username}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(getCart(username)),
+            });
+            const responseJson = await response.json();
+            console.log(responseJson)
+            return responseJson.cart;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+}
+
 function removeProductFromCart(username, productId) {
     async function removeProductFromCartAsync(username, productId) {
         try {
@@ -43,6 +62,7 @@ function removeProductFromCart(username, productId) {
     }
     return removeProductFromCartAsync(username, productId);
 }
+
 
 export {
     getCart,

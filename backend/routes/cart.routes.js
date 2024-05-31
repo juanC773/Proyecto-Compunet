@@ -12,6 +12,13 @@ router.get('/:username', async (req, res) => {
     res.json({cart: user.cart.toJSON()});
 });
 
+router.post('/pay/:username', async (req, res) => {
+    const {username} = req.params;
+    const user = getUserByUsername(username);
+    user.addPaymentHistory();
+    res.json({cart: user.cart.toJSON()});
+})
+
 router.post('/:username/products/:productId', async (req, res) => {
     const {username, productId} = req.params;
     const user = getUserByUsername(username);

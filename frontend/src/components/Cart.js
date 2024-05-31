@@ -8,6 +8,7 @@ export default function Cart(cart) {
     cartTitle.innerText = "Carrito de Compras";
     cartElement.appendChild(cartTitle);
 
+
     let cartList = document.createElement('ul');
     cartList.classList.add("cart-list");
     cartElement.appendChild(cartList);
@@ -22,6 +23,10 @@ export default function Cart(cart) {
         removeButton.onclick = () => removeProductFromCart("u0", product.id);
         productElement.appendChild(removeButton);
     });
+
+    let send_button = document.createElement("button");
+    send_button.textContent = "Comprar ahora";
+    cartElement.appendChild(send_button);
 
     return cartElement;
 }

@@ -8,6 +8,7 @@ class User {
         this.password = encryptPassword(password);
         this.userType = "user";
         this.cart = new Cart();
+        this.payment_history = [];
     }
 
     editUser({username = null, password = null, name = null}) {
@@ -22,7 +23,11 @@ class User {
 
     removeFromCart(product) {
         this.cart.removeProduct(product);
-    
+    }
+
+    addPaymentHistory(){
+        this.payment_history[this.payment_history.length] = this.cart;
+        
     }
 
     toJSON() {

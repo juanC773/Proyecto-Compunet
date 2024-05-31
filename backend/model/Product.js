@@ -17,6 +17,10 @@ class Product {
         if(description) this.description = description;
         if(price) this.price = price;
         if(thumbnail) this.thumbnail = thumbnail;
+        
+    }
+
+    editProductStock(stock){
         if(stock) this.stock = stock;
     }
 
