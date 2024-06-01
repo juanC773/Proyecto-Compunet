@@ -10,11 +10,7 @@ async function displayView(view) {
     $root.appendChild(res);
 }
 
-const user = JSON.parse(localStorage.getItem('user'));
-
 const setRoute = () => {
-    if(!user) window.location.href = 'login.html';
-    console.log(window.location.hash)
     switch (window.location.hash) {
         case '#home':
             displayView(MainView);

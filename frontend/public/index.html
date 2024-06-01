@@ -83,6 +83,8 @@
         const user = JSON.parse(localStorage.getItem('user'));
         const loginRoute = document.getElementById('loginRoute');
         const logoutRoute = document.getElementById('logoutRoute');
+        const cartRoute = document.getElementById('cartRoute');
+        const addProductRoute = document.getElementById('addProductRoute');
         logoutRoute.addEventListener('click', () => {
             localStorage.removeItem('user');
             window.location.href = 'index.html';
@@ -90,14 +92,14 @@
         if(user) {
             loginRoute.style.display = 'none';
             if(user.username == "admin") {
-                const cartRoute = document.getElementById('cartRoute');
                 cartRoute.style.display = 'none';
             } else {
-                const addProductRoute = document.getElementById('addProductRoute');
                 addProductRoute.style.display = 'none';
             }
         } else {
             logoutRoute.style.display = 'none';
+            addProductRoute.style.display = 'none';
+            cartRoute.style.display = 'none';    
         }
     </script>
 </body>

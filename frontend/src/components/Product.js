@@ -40,7 +40,7 @@ function Product(product) {
     container.appendChild(info);
 
     const user = JSON.parse(localStorage.getItem('user'));
-    if(user.username != 'admin') {
+    if(user && user.username != 'admin') {
         const button = document.createElement('button');
         button.textContent = 'Add to Cart';
         button.onclick = () => addProductToCart("u0", product.id);
