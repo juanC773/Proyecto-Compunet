@@ -27,7 +27,33 @@ function addProduct(productData) {
     addProductAsync(productData);
 }
 
+
+function editProduct(data) {
+
+    async function editProductAsync(data) {
+        const request = new Request('http://localhost:3000/products/edit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
+        });
+    
+        
+        const response = await fetch(request);
+        if (response.ok) {
+            alert('Stock modificado con éxito');
+            location.reload();
+        } else {
+            alert('Error al modificar el stock del producto');
+        }
+    }
+
+    editProductAsync(data);
+}
+
 export {
     getProducts,
     addProduct,
+    editProduct
 }
