@@ -9,9 +9,9 @@ router.post('/register',(req, res) =>{
     const userData = req.body;
     try {
         addUser(userData);
-        res.status(201).send("User registered successfully")
+        res.status(201).send({"message": "User created successfully"})
     } catch (err){
-        res.status(400).send(err.message);
+        res.status(400).send({"error": err});
     }
 });
 
