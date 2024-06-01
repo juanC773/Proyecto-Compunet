@@ -39,10 +39,13 @@ function Product(product) {
 
     container.appendChild(info);
 
-    const button = document.createElement('button');
-    button.textContent = 'Add to Cart';
-    button.onclick = () => addProductToCart("u0", product.id);
-    info.appendChild(button);
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(user.username != 'admin') {
+        const button = document.createElement('button');
+        button.textContent = 'Add to Cart';
+        button.onclick = () => addProductToCart("u0", product.id);
+        info.appendChild(button);
+    }
 
     return container;
 }

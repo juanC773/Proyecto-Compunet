@@ -13,13 +13,14 @@
     <header>
         <h1>Cottontoil!</h1>
         <nav>
-            <a href="#home">Inicio</a>
-            <a href="#products">Productos</a>
-            <a href="#add-product">Agregar Producto</a>
-            <a href="#cart">Carrito de Compras</a>
+            <a id="homeRoute" href="#home">Inicio</a>
+            <a id="productsRoute" href="#products">Productos</a>
+            <a id="addProductRoute" href="#add-product">Agregar Producto</a>
+            <a id="cartRoute" href="#cart">Carrito de Compras</a>
 
             <!-- <a href="#contact">Contact</a> -->
-            <a href="login.html">Iniciar sesión</a>
+            <a id="loginRoute" href="login.html">Iniciar sesión</a>
+            <a id="logoutRoute" href="#">Cerrar sesión</a>
 
 
             <!-- <a href="#" class="social-link"> <i class="fa-brands fa-youtube"> </i></a> -->
@@ -77,5 +78,27 @@
 
 
     <script type="module" src="../src/index.js"></script>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
+        const loginRoute = document.getElementById('loginRoute');
+        const logoutRoute = document.getElementById('logoutRoute');
+        logoutRoute.addEventListener('click', () => {
+            localStorage.removeItem('user');
+            window.location.href = 'index.html';
+        });
+        if(user) {
+            loginRoute.style.display = 'none';
+            if(user.username == "admin") {
+                const cartRoute = document.getElementById('cartRoute');
+                cartRoute.style.display = 'none';
+            } else {
+                const addProductRoute = document.getElementById('addProductRoute');
+                addProductRoute.style.display = 'none';
+            }
+        } else {
+            logoutRoute.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
