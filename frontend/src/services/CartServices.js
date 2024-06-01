@@ -24,7 +24,7 @@ function addProductToCart(username, productId) {
                 body: JSON.stringify({ productId: productId }),
             });
             const responseJson = await response.json();
-          
+            alert("Producto añadido al carrito")
             return responseJson.cart;
         } catch (error) {
             console.error('Error:', error);
@@ -118,7 +118,8 @@ function removeProductFromCart(username, productId) {
                 method: 'DELETE',
             });
             const responseJson = await response.json();
-            return responseJson.cart;
+            responseJson.cart;
+            return cart;
         } catch (error) {
             console.error('Error:', error);
         }

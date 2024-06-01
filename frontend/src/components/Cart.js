@@ -1,4 +1,4 @@
-import { removeProductFromCart, addPaymentHistory } from "../services/CartServices.js";
+import { removeProductFromCart, addPaymentHistory, addProductToCart } from "../services/CartServices.js";
 
 export default function Cart(cart) {
     let cartElement = document.createElement('div');
@@ -22,8 +22,16 @@ export default function Cart(cart) {
         cartList.appendChild(productElement);
         const removeButton = document.createElement('button');
         removeButton.textContent = "-";
-        removeButton.onclick = () => removeProductFromCart("u0", product.id);
+        removeButton.onclick = () => {
+            removeProductFromCart("u0", product.id);
+        }
+        const addButton = document.createElement('button');
+        addButton.textContent = "+";
+        addButton.onclick = () => {
+            addProductToCart("u0", product.id);
+        };
         productElement.appendChild(removeButton);
+        productElement.appendChild(addButton);
     });
 
     //Comprar e historial
@@ -70,11 +78,16 @@ export default function Cart(cart) {
 
     });
 
-    cartElement.appendChild(send_button);
-
-    
-    
-
+    if(cart.products.length > 0){
+        cartElement.appendChild(send_button);
+    } else {
+        let emptyCart = document.createElement('h3');
+        emptyCart.innerText = "El carrito está vacío";
+        let emptyCartDescription = document.createElement('p');
+        emptyCartDescription.innerText = "Agrega productos al carrito para poder comprar";
+        cartElement.appendChild(emptyCart);
+        cartElement.appendChild(emptyCartDescription);
+    }
 
     return cartElement;
 }

@@ -7,12 +7,10 @@ import { addProduct as addProductGlobal } from "../controller/products.js";
 class Cart {
     constructor(id = generateId(), products = {}) {
         this.id = id;
-        console.log("products", products)
         if (Array.isArray(products)) {
             this.products = {};
             products.forEach(product => {
                 const productFromId = getProductById(product.id);
-                console.log("productFromId", productFromId)
                 if (productFromId) {
                     this.products[product.id] = product.quantity;
                 } else {
