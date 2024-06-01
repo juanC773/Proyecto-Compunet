@@ -1,14 +1,14 @@
 import { generateId } from "../util/util.js";
 
 class Product {
-    constructor({title, category, description, price, thumbnail}) {
-        this.id = generateId();
+    constructor({id = undefined, title, category, description, price, thumbnail, stock = 0}) {
+        this.id = id || generateId();
         this.title = title;
         this.category = category;
         this.description = description;
         this.price = price;
         this.thumbnail = thumbnail;
-        this.stock = 0;
+        this.stock = stock;
     }
     
     editProduct({title = null, category = null, description = null, price = null, thumbnail = null, stock = null}) {

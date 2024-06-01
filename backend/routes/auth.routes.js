@@ -18,9 +18,7 @@ router.post('/register',(req, res) =>{
 //clients Login
 router.post('/login', (req, res) => {
     const { username, password } = req.body; 
-    console.log(username, password)
     const user = getUserByUsername(username); 
-    console.log(user)
     const matchPassword = user && user.password == password; 
     if (user && matchPassword) { 
         res.status(200).send({user: user.toJSON()}); 

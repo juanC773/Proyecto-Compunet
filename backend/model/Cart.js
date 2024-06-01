@@ -1,10 +1,27 @@
 import { getProductById } from "../controller/products.js";
 import { generateId } from "../util/util.js";
+import Product from "./Product.js";
+
+import { addProduct as addProductGlobal } from "../controller/products.js";
 
 class Cart {
-    constructor() {
-        this.id = generateId();
-        this.products = {};
+    constructor(id = generateId(), products = {}) {
+        this.id = id;
+        console.log("products", products)
+        if (Array.isArray(products)) {
+            this.products = {};
+            products.forEach(product => {
+                const productFromId = getProductById(product.id);
+                console.log("productFromId", productFromId)
+                if (productFromId) {
+                    this.products[product.id] = product.quantity;
+                } else {
+                    this.products[product.id] = addProductGlobal(product);
+                }
+            });
+        } else {
+            this.products = products;
+        }
     }
 
     addProduct(product) {

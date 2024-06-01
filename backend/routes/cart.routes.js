@@ -7,7 +7,6 @@ const router = Router()
 router.get('/:username', async (req, res) => {
     const username = req.params.username;
     const user = getUserByUsername(username);
-    console.log(user)
     res.json({cart: user.cart.toJSON()});
 });
 
@@ -27,7 +26,6 @@ router.post('/pay/:username', async (req, res) => {
         }
 
         editProductStock(element);
-        console.log(element)
     });
    
 
@@ -51,7 +49,6 @@ router.post('/getStock/:username', async (req, res) => {
 router.post('/paymentHistory/:username', async (req, res) => {
     const {username} = req.params;
     const user = getUserByUsername(username);  
-    console.log(user.getPaymentHistory());
     res.json(user.getPaymentHistory());
 })
 
