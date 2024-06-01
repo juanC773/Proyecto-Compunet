@@ -31,6 +31,7 @@ const setRoute = () => {
             break;
         case '#edit-product':
             displayView(EditProductView);
+            break;
         case '#payment-history':
                 displayView(PaymentHistory);
         break;

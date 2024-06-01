@@ -24,6 +24,10 @@ class Product {
         if(stock) this.stock = stock;
     }
 
+    getStock(){
+        return this.stock;
+    }
+
     toJSON() {
         return {
             id: this.id,

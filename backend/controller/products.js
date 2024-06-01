@@ -34,11 +34,18 @@ const editProductStock = (productData) => {
     return product
 }
 
+
+const getStock = (id) => {
+    const product = products.find(product => product.id == id)
+    return product.getStock();
+}
+
 export {
     getAllProducts,
     getProductById,
     deleteProduct,
     editProductStock,
     addProduct,
-    editProduct
+    editProduct,
+    getStock
 }

@@ -1,3 +1,5 @@
+import { editProduct } from "./ProductServices.js";
+
 async function getCart(username) {
     try {
         const username = "u0"
@@ -39,18 +41,45 @@ function addPaymentHistory(username){
             let response = await fetch(`http://localhost:3000/cart/${username}`);
             let responseJson = await response.json();
             
-             response = await fetch(`http://localhost:3000/cart/pay/${username}`, {
+            
+            for(let i = 0; i < responseJson.cart.products.length; i++){
+                let element = responseJson.cart.products[i]
+
+                response = await fetch(`http://localhost:3000/cart/getStock/${username}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(element)
+                
+                });
+                
+
+                response = await response.json();
+                    if (!response){
+                        console.log(response)
+                        alert("Hay productos sin stock. Eliminalos para continuar")
+                        return;
+                    }
+            };
+            
+                response = await fetch(`http://localhost:3000/cart/pay/${username}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(responseJson.cart.products),
+                  body: JSON.stringify(responseJson.cart.products),
+                    
+                });
+
                 
-            });
+                
+                
+                alert("Compra exitosa!.")
+                response = await response.json();
+                return response
             
-            alert("Compra exitosa!.")
-            response = await response.json();
-            return response
+            
             
         } catch (error) {
             console.error('Error:', error);
