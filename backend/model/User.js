@@ -4,13 +4,14 @@ import Cart from "./Cart.js";
 import Pays from "./Pays.js";
 
 class User {
-    constructor({username, password, name, cart = undefined}) {
+    constructor({username, password, name, cart = undefined, payment_history = []}) {
         this.name = name;
         this.username = username;
         this.password = password;
         this.userType = "user";
         this.cart = cart ? new Cart(cart.id, cart.products) : new Cart();
-        this.payment_history =[];
+        console.log("payment_history", payment_history)
+        this.payment_history = payment_history.map(history => new Pays(history.id, history.payment_history));
     }
 
     editUser({username = null, password = null, name = null}) {
@@ -41,11 +42,13 @@ class User {
     }
 
     toJSON() {
+        console.log("payments", this.payment_history)
         return {
             username: this.username,
             name: this.name,
             password: this.password,
             cart: this.cart.toJSON(),
+            payment_history: this.payment_history
         }
     }
 }
