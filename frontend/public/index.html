@@ -17,11 +17,11 @@
             <a id="homeRoute" href="#home">Inicio</a>
             <a id="productsRoute" href="#products">Productos</a>
             <a id="addProductRoute" href="#add-product">Agregar producto</a>
-            <a href="#edit-product">Editar Producto</a>
+            <a id="editProductRoute" href="#edit-product">Editar Producto</a>
             <a id="cartRoute" href="#cart">
                 <i class="fas fa-shopping-cart"></i> 
             </a>
-            <a href="#payment-history">Historial de Compras</a>
+            <a id="paymentHistoryRoute" href="#payment-history">Historial de Compras</a>
             <!-- <a href="#contact">Contact</a> -->
             <a id="loginRoute" href="login.html">Iniciar sesión</a>
             <a id="logoutRoute" href="#">Cerrar sesión</a>
@@ -71,6 +71,8 @@
         const logoutRoute = document.getElementById('logoutRoute');
         const cartRoute = document.getElementById('cartRoute');
         const addProductRoute = document.getElementById('addProductRoute');
+        const paymentHistoryRoute = document.getElementById('paymentHistoryRoute');
+        const editProductRoute = document.getElementById('editProductRoute');
         logoutRoute.addEventListener('click', () => {
             localStorage.removeItem('user');
             window.location.href = 'index.html';
@@ -79,13 +81,17 @@
             loginRoute.style.display = 'none';
             if(user.username == "admin") {
                 cartRoute.style.display = 'none';
+                paymentHistoryRoute.style.display = 'none';
             } else {
                 addProductRoute.style.display = 'none';
+                editProductRoute.style.display = 'none';
             }
         } else {
             logoutRoute.style.display = 'none';
             addProductRoute.style.display = 'none';
-            cartRoute.style.display = 'none';    
+            cartRoute.style.display = 'none';
+            paymentHistoryRoute.style.display = 'none';
+            editProductRoute.style.display = 'none';    
         }
     </script>
 </body>
