@@ -20,7 +20,6 @@ router.post('/login', (req, res) => {
     const { username, password } = req.body; 
     console.log(username, password)
     const user = getUserByUsername(username); 
-    console.log(getAllUsers())
     console.log(user)
     const matchPassword = user && user.password == password; 
     if (user && matchPassword) { 

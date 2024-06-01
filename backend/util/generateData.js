@@ -16,7 +16,7 @@ export default function generateData() {
                 addProduct(product);
             }
         }
-        if(!getAllUsers().length) {
+        if(!getAllUsers().length < 1) {
             for(let i=0; i<5; i++) {
                 const products = getAllProducts();
                 let userData = {
