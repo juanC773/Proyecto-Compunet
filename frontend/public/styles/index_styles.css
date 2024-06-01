@@ -33,6 +33,7 @@ h1 {
 }
 
 .title-container {
+    /**/
     margin-top: 120px; 
     margin-left: 690px;
 }
@@ -43,15 +44,16 @@ h1 {
     font-weight: 300;
     font-size: 52px;
     line-height: 55px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
+
 
 .subtext {
     font-size: 19px;
     color: #555;
     margin-left: 0px; 
     margin-top: 0px;
-    margin-bottom: 120px;
+   
 }
 
 .gradient-text {
@@ -109,6 +111,12 @@ main {
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s ease;
+
+
+    /**/
+    width: 77%;
+    max-width: 350px;
+    padding: 20px;
 
 }
 
@@ -251,4 +259,28 @@ main {
     background: -webkit-linear-gradient(#ff3300, #ffb168);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+
+
+/*Carrito*/
+
+.add-to-cart-btn {
+    background-color: #d0cfcd; /* Color de fondo verde */
+    
+    
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Inline-block */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-top: 10px; /* Margen superior */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #b7b7b7; /* Color de fondo al pasar el ratón por encima */
 }
