@@ -2,38 +2,13 @@ import fs from 'fs';
 import User from "../model/User.js"
 import Admin from "../model/Admin.js";
 import { json } from 'express';
+import { loadData, saveData } from '../util/util.js';
 
-const usersFilePath = './data/users.txt';
 
-const users = loadUsers();
+const users = loadData("users", User);
 
-function loadUsers(){
-    try{
-        const data = fs.readFileSync(usersFilePath, 'utf8');
-        return JSON.parse(data);
-    } catch (err){
-        console.error("Error loading users: ", err)
-        return [];
-    }
-}
-
-function saveUsers(){
-    try{
-        fs.writeFileSync(usersFilePath, JSON.stringify(users), 'utf8');
-    } catch (err){
-        console.error("Error saving users: ",err)
-    }
-}
-
-if (users.length === 0){
-    const adminData = {
-        username: "admin",
-        password: "admin",
-        name: "Administrator",
-    }
-    const admin = new Admin(adminData);
-    users.push(admin)
-    saveUsers();
+const saveUsers = () => {
+    saveData("users", users);
 }
 
 const addUser = (userData) => {
@@ -42,7 +17,7 @@ const addUser = (userData) => {
     }
     const newUser = new User(userData);
     users.push(newUser);
-    saveUsers;
+    saveUsers();
 }
 
 const getUserByUsername = (username) => {
@@ -51,15 +26,28 @@ const getUserByUsername = (username) => {
 
 const deleteUser = (username) => {
     users.filter(user => user.username !== username)
+    saveUsers();
 }
 
 const editUser = (username, userData) => {
     const user = users.find(user => user.username === username)
     user.editUser(userData)
+    saveUsers();
 }
 
 const getAllUsers = () => {
     return users
+}
+
+if (!getUserByUsername("admin")){
+    const adminData = {
+        username: "admin",
+        password: "admin",
+        name: "Administrator",
+    }
+    const admin = new User(adminData);
+    users.push(admin)
+    saveUsers();
 }
 
 export {
@@ -67,5 +55,5 @@ export {
     getUserByUsername,
     deleteUser,
     editUser,
-    getAllUsers
+    getAllUsers,
 }

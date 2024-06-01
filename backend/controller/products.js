@@ -1,7 +1,12 @@
 
 import Product from '../model/Product.js'
+import { loadData, saveData } from '../util/util.js'
 
-const products = []
+const products = loadData("products", Product)
+
+const saveProducts = () => {
+    saveData("products", products)
+}
 
 const getAllProducts = () => {
     return products
@@ -13,18 +18,21 @@ const getProductById = (id) => {
 
 const deleteProduct = (id) => { 
     products = products.filter(product => product.id !== id)
+    saveProducts();
     return true
 }
 
 const addProduct = (productData) => {
     const newProduct = new Product(productData)
     products.push(newProduct)
+    saveProducts();
     return newProduct
 }
 
 const editProduct = (id, productData) => {
     const product = products.find(product => product.id === id)
     product.editProduct(productData)
+    saveProducts();
     return product
 }
 

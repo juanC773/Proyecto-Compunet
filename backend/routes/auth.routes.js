@@ -1,5 +1,6 @@
 import express from 'express';
-import { addUser, getUserByUsername } from '../controller/users.js';
+import { addUser, getAllUsers, getUserByUsername } from '../controller/users.js';
+import bcrypt from 'bcrypt';
 
 const router = express.Router();
 
@@ -10,18 +11,22 @@ router.post('/register',(req, res) =>{
         addUser(userData);
         res.status(201).send("User registered successfully")
     } catch (err){
-        res.status(400).send(error.message);
+        res.status(400).send(err.message);
     }
 });
 
 //clients Login
 router.post('/login', (req, res) => {
     const { username, password } = req.body; 
+    console.log(username, password)
     const user = getUserByUsername(username); 
-    if (!user || user.password !== password) { 
-        res.status(401).send("Incorrect credentials."); 
+    console.log(getAllUsers())
+    console.log(user)
+    const matchPassword = user && user.password == password; 
+    if (user && matchPassword) { 
+        res.status(200).send({user: user.toJSON()}); 
     } else {
-        res.status(200).send("Successful login."); 
+        res.status(401).send("Incorrect credentials."); 
     }
 });
 
