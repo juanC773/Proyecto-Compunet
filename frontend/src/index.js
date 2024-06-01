@@ -15,7 +15,6 @@ async function displayView(view) {
 }
 
 const setRoute = () => {
-    console.log(window.location.hash)
     switch (window.location.hash) {
         case '#home':
             displayView(MainView);

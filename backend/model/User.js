@@ -6,7 +6,7 @@ class User {
     constructor({username, password, name}) {
         this.name = name;
         this.username = username;
-        this.password = encryptPassword(password);
+        this.password = password;
         this.userType = "user";
         this.cart = new Cart();
         this.payment_history =[];
@@ -39,6 +39,7 @@ class User {
         return {
             username: this.username,
             name: this.name,
+            password: this.password,
             cart: this.cart.toJSON(),
         }
     }

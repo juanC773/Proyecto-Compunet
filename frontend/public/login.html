@@ -11,6 +11,9 @@
 <body>
     <header>
         <h1>Cottontoil!</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+        </nav>
     </header>
 
     <main>
@@ -60,5 +63,34 @@
             <small>&copy; 2024 <b class="pie-pagina-gradiente">Cottontoil</b> Todos los derechos reservados.</small>
         </div>
     </footer>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const username = formData.get('username');
+            const password = formData.get('password');
+            const response = await fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            });
+            try {
+                const data = await response.json();
+                const user = data.user;
+                localStorage.setItem('user', JSON.stringify(user));
+                window.location.href = 'index.html';
+            } catch(e) {
+                alert("Usuario o contraseña incorrectos")
+            }
+
+        });
+    </script>
 </body>
 </html>

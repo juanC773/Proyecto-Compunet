@@ -21,9 +21,10 @@ router.get('/', async (req, res) => {
 router.post('/', upload.single('thumbnail'), async (req, res) => {
     try {
         const thumbnail = req.file
-        req.body.thumbnail = `${req.protocol}://${req.get('host')}/${thumbnail.path}`;
+        console.log(thumbnail)
+        req.body.thumbnail = thumbnail ?  `${req.protocol}://${req.get('host')}/${thumbnail.path}` : "";
         const product = addProduct(req.body)
-        console.log(getAllProducts())
+        console.log(product)
         res.json({message: 'Producto agregado'});
     } catch (error) {
         console.error(error);

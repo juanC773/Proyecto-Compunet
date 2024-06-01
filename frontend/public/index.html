@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cottontoil</title>
     <link rel="stylesheet" href="styles/index_styles.css">
+    <link rel="stylesheet" href="styles/add_product_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -13,21 +14,21 @@
     <header>
         <h1>Cottontoil!</h1>
         <nav>
-            <a href="#home">Inicio</a>
-            <a href="#products">Productos</a>
-            <a href="#add-product">Agregar Producto</a>
+            <a id="homeRoute" href="#home">Inicio</a>
+            <a id="productsRoute" href="#products">Productos</a>
+            <a id="addProductRoute" href="#add-product">Agregar producto</a>
             <a href="#edit-product">Editar Producto</a>
-            <a href="#cart">Carrito de Compras</a>
+            <a id="cartRoute" href="#cart">
+                <i class="fas fa-shopping-cart"></i> 
+            </a>
             <a href="#payment-history">Historial de Compras</a>
-            
-
             <!-- <a href="#contact">Contact</a> -->
-            <a href="login.html">Iniciar sesión</a>
+            <a id="loginRoute" href="login.html">Iniciar sesión</a>
+            <a id="logoutRoute" href="#">Cerrar sesión</a>
 
-
-            <!-- <a href="#" class="social-link"> <i class="fa-brands fa-youtube"> </i></a> -->
-            <!-- <a href="#" class="social-link"> <i class="fa-brands fa-github"> </i></a> -->
-            <!-- <a href="#" class="social-link"> <i class="fa-brands fa-instagram"> </i></a> -->
+             <a href="#" class="social-link"> <i class="fa-brands fa-youtube"> </i></a> 
+             <a href="#" class="social-link"> <i class="fa-brands fa-github"> </i></a> 
+            <a href="#" class="social-link"> <i class="fa-brands fa-instagram"> </i></a> 
         </nav>
     </header>
 
@@ -63,5 +64,29 @@
         </div>
     </footer>
     <script type="module" src="../src/index.js"></script>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
+        const loginRoute = document.getElementById('loginRoute');
+        const logoutRoute = document.getElementById('logoutRoute');
+        const cartRoute = document.getElementById('cartRoute');
+        const addProductRoute = document.getElementById('addProductRoute');
+        logoutRoute.addEventListener('click', () => {
+            localStorage.removeItem('user');
+            window.location.href = 'index.html';
+        });
+        if(user) {
+            loginRoute.style.display = 'none';
+            if(user.username == "admin") {
+                cartRoute.style.display = 'none';
+            } else {
+                addProductRoute.style.display = 'none';
+            }
+        } else {
+            logoutRoute.style.display = 'none';
+            addProductRoute.style.display = 'none';
+            cartRoute.style.display = 'none';    
+        }
+    </script>
 </body>
 </html>

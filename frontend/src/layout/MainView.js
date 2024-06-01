@@ -15,7 +15,8 @@ export default async function MainView() {
 
     const h2 = document.createElement('h2');
     h2.className = 'main-title';
-    h2.innerHTML = 'Bienvenido a la mejor tienda!<br> ten un buen dia (:';
+    const user = JSON.parse(localStorage.getItem('user')); 
+    h2.innerHTML = `Hola, ${user ? user.username : ""} ¡Bienvenido a la mejor tienda!<br> ten un buen dia (:`;
 
     const divSubtext = document.createElement('div');
     divSubtext.className = 'subtext';

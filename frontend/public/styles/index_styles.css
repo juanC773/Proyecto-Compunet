@@ -1,4 +1,4 @@
-/* Existing styles */
+/*  styles */
 
 body {
     font-family: "Montserrat", Arial, sans-serif;
@@ -33,6 +33,7 @@ h1 {
 }
 
 .title-container {
+    /**/
     margin-top: 120px; 
     margin-left: 690px;
 }
@@ -43,15 +44,16 @@ h1 {
     font-weight: 300;
     font-size: 52px;
     line-height: 55px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
+
 
 .subtext {
     font-size: 19px;
     color: #555;
     margin-left: 0px; 
     margin-top: 0px;
-    margin-bottom: 120px;
+   
 }
 
 .gradient-text {
@@ -112,6 +114,12 @@ main {
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s ease;
+
+
+    /**/
+    width: 77%;
+    max-width: 350px;
+    padding: 20px;
 
 }
 
@@ -214,7 +222,7 @@ main {
 }
 
 .pie-pagina .grupo-1 .box figure img {
-    width: 250px; /* Corrigiendo el espacio innecesario */
+    width: 250px; 
     height: 250px;
     margin-top: 0;
 }
@@ -223,7 +231,7 @@ main {
     margin-top: 10px;
     color: #706969;
     margin-bottom: 25px;
-    font-size: 20px; /* Corrigiendo el espacio innecesario */
+    font-size: 20px; 
 }
 
 .pie-pagina .grupo-1 .red-social-footer a {
@@ -255,4 +263,28 @@ main {
     background: -webkit-linear-gradient(#ff3300, #ffb168);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+
+
+/*boton para añadir al carrito*/
+
+.add-to-cart-btn {
+    background-color: #d0cfcd; 
+    
+    
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 16px; 
+    margin-top: 10px; 
+    cursor: pointer;
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.add-to-cart-btn:hover {
+    background-color: #b7b7b7; 
 }
