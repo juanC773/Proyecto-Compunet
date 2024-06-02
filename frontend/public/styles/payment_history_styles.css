@@ -11,7 +11,7 @@
 
 .payment-history-container h2 {
     text-align: center;
-    color: #2c3e50;
+    color: #5d5959;
     font-size: 26px;
     margin-bottom: 20px;
     border-bottom: 2px solid #ececec;
@@ -41,7 +41,7 @@
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 20px;
-    color: #34495e;
+    color: #679abf;
 }
 
 .cart-product {
@@ -67,7 +67,7 @@
     margin-top: 15px;
     font-weight: bold;
     text-align: right;
-    color: #2c3e50;
+    color: #696c6e;
     border-top: 1px solid #e0e0e0;
     padding-top: 10px;
     font-size: 18px;
@@ -75,4 +75,8 @@
 
 .factura-header, .cart-product, .factura-total {
     padding-left: 15px;
+}
+
+.cart-product div {
+    color: #000; /* Cambiar el color del texto a negro */
 }

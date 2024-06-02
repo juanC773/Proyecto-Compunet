@@ -1,3 +1,4 @@
+import { removeProductFromCart, addPaymentHistory } from "../services/CartServices.js";
 export default function Cart(cart) {
     let cartElement = document.createElement('div');
     cartElement.classList.add("cart-container"); // Agregar clase específica al contenedor principal
@@ -22,7 +23,7 @@ export default function Cart(cart) {
 
 
         let productInfo = document.createElement('div');
-        productInfo.classList.add("product-info2");
+        productInfo.classList.add("product-info2"); 
         productElement.appendChild(productInfo);
 
         let productName = document.createElement('h3');
@@ -52,7 +53,58 @@ export default function Cart(cart) {
     send_button.classList.add("buy-button"); // Agregar clase específica al botón de compra
 
     send_button.addEventListener("click", async () => {
-        // Código para mostrar el recibo...
+        let divRecibo = document.createElement('div');
+        divRecibo.setAttribute("class", "divRecibo");
+        divRecibo.setAttribute("id", "divRecibo");
+
+
+        let invoiceTitle = document.createElement('h2');
+        invoiceTitle.innerText = "Factura:";
+        invoiceTitle.classList.add("invoice-title"); // Agregar clase específica al título de la factura
+        divRecibo.appendChild(invoiceTitle);
+
+        let paymentList = document.createElement('ul');
+        let res = await addPaymentHistory("u0");
+
+        let factura = res[res.length - 1].payment_history;
+
+        let total = 0;
+        factura.forEach(product => {
+            let productElement = document.createElement('p');
+            productElement.classList.add("cart-product");
+
+            let productName = document.createElement('span');
+            productName.innerText = "Producto: " + product.title;
+            productElement.appendChild(productName);
+
+            let productPrice = document.createElement('span');
+            productPrice.innerText = "Precio: $" + product.price;
+            productElement.appendChild(productPrice);
+
+            let productQuantity = document.createElement('span');
+            productQuantity.innerText = "Cantidad: " + product.quantity;
+            productElement.appendChild(productQuantity);
+
+            paymentList.appendChild(productElement);
+
+            total += product.price * product.quantity;
+        });
+
+        divRecibo.appendChild(paymentList);
+        let spanTotal = document.createElement('span');
+        spanTotal.innerText = "Total: $" + total;
+        divRecibo.appendChild(spanTotal);
+
+        let buttonFinish = document.createElement('button');
+        buttonFinish.innerText = "Aceptar";
+        buttonFinish.classList.add("accept-button"); // Agregar clase específica al botón de aceptar
+        buttonFinish.style.display = "block";
+        buttonFinish.onclick = () => {
+            document.querySelector("#divRecibo").style.display = "none";
+        };
+
+        divRecibo.appendChild(buttonFinish);
+        document.querySelector("#cartElement").appendChild(divRecibo);
     });
 
     cartElement.appendChild(send_button);
