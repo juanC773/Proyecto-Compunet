@@ -1,4 +1,4 @@
-.divRecibo {
+.payment-history-container {
     font-family: Arial, sans-serif;
     margin: 20px auto;
     padding: 20px;
@@ -9,7 +9,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.divRecibo h2 {
+.payment-history-container h2 {
     text-align: center;
     color: #2c3e50;
     font-size: 26px;

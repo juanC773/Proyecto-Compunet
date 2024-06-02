@@ -3,8 +3,7 @@ import { getPaymentHistory } from "../services/CartServices.js";
 export default async function PaymentHistoryComponent() {
     // Crear el contenedor principal
     let divRecibo = document.createElement('div');
-    divRecibo.setAttribute("class", "divRecibo");
-    divRecibo.setAttribute("id", "divRecibo");
+    divRecibo.classList.add("payment-history-container");
 
     // Añadir el título
     let title = document.createElement('h2');
