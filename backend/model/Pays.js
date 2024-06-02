@@ -2,7 +2,7 @@ import { getProductById } from "../controller/products.js";
 import { generateId } from "../util/util.js";
 
 class Pays{
-    constructor(id = generateId(), payment_history = []){
+    constructor(payment_history = [], id = generateId(), ){
         this.id = id;
         this.payment_history = payment_history;
         this.total;

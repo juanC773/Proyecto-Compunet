@@ -49,7 +49,7 @@ router.post('/getStock/:username', async (req, res) => {
 router.post('/paymentHistory/:username', async (req, res) => {
     const {username} = req.params;
     const user = getUserByUsername(username);  
-    res.json(user.getPaymentHistory());
+    res.json(user.getPaymentHistory().map(history => history.toJSON()));
 })
 
 router.post('/:username/products/:productId', async (req, res) => {

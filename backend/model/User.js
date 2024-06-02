@@ -10,7 +10,7 @@ class User {
         this.password = password;
         this.userType = "user";
         this.cart = cart ? new Cart(cart.id, cart.products) : new Cart();
-        this.payment_history = payment_history.map(history => new Pays(history.id, history.payment_history));
+        this.payment_history = payment_history.map(history => new Pays(history.payment_history, history.id));
     }
 
     editUser({username = null, password = null, name = null}) {
@@ -37,6 +37,7 @@ class User {
     }
 
     getPaymentHistory(){
+        console.log(this.payment_history)
         return this.payment_history;
     }
 
@@ -46,7 +47,7 @@ class User {
             name: this.name,
             password: this.password,
             cart: this.cart.toJSON(),
-            payment_history: this.payment_history
+            payment_history: this.payment_history.map(history => history.toJSON())
         }
     }
 }

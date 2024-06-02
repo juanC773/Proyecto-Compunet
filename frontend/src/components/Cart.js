@@ -14,6 +14,7 @@ export default function Cart(cart) {
     cartList.classList.add("cart-list");
     cartElement.appendChild(cartList);
     
+    const user = JSON.parse(localStorage.getItem('user'));
 
     cart.products.forEach(product => {
         let productElement = document.createElement('li');
@@ -23,12 +24,12 @@ export default function Cart(cart) {
         const removeButton = document.createElement('button');
         removeButton.textContent = "-";
         removeButton.onclick = () => {
-            removeProductFromCart("u0", product.id);
+            removeProductFromCart(user.username, product.id);
         }
         const addButton = document.createElement('button');
         addButton.textContent = "+";
         addButton.onclick = () => {
-            addProductToCart("u0", product.id);
+            addProductToCart(user.username, product.id);
         };
         productElement.appendChild(removeButton);
         productElement.appendChild(addButton);
@@ -46,8 +47,8 @@ export default function Cart(cart) {
         divRecibo.innerText += "Factura: ";
 
         let paymentList = document.createElement('ul');
-        let res = await addPaymentHistory("u0");
-
+        let res = await addPaymentHistory(user.username);
+        console.log(res)
         let factura = res[res.length - 1].payment_history;
 
 

@@ -10,7 +10,8 @@ export default async function PaymentHistoryComponent(){
             let paymentList = document.createElement('ul');
             var res;
                     
-            res = await getPaymentHistory("u0");
+            const user = JSON.parse(localStorage.getItem('user'));
+            res = await getPaymentHistory(user.username);
             
             console.log(res)
 
@@ -21,7 +22,7 @@ export default async function PaymentHistoryComponent(){
                 ulFactura.classList.add("spanFactura");
                 ulFactura.innerText += "Compra #" + i++;
                 let total = 0;
-
+                console.log(factura.payment_history)
                 factura.payment_history.forEach(product=>{
                     let productElement = document.createElement('li');
                     productElement.classList.add("cart-product");
