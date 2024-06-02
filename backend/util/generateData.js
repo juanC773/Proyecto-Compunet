@@ -12,6 +12,7 @@ export default function generateData() {
                     description: `Description of product ${i}`,
                     thumbnail: `https://picsum.photos/200?random=${i}`,
                     category: `Category ${i}`,
+                    stock: Math.floor(Math.random() * 100)
                 });
                 addProduct(product);
             }

@@ -1,8 +1,10 @@
 import { editProduct } from "./ProductServices.js";
 
+
 async function getCart(username) {
     try {
-        const username = "u0"
+        const user = JSON.parse(localStorage.getItem("user"));
+        const username = user.username
         const response = await fetch(`http://localhost:3000/cart/${username}`);
         const responseJson = await response.json();
        
@@ -24,7 +26,7 @@ function addProductToCart(username, productId) {
                 body: JSON.stringify({ productId: productId }),
             });
             const responseJson = await response.json();
-          
+            alert("Producto añadido al carrito")
             return responseJson.cart;
         } catch (error) {
             console.error('Error:', error);
@@ -37,10 +39,9 @@ function addPaymentHistory(username){
     async function addPaymentHistoryAsync(username){
         
         try {
-            let username = "u0"
-            let response = await fetch(`http://localhost:3000/cart/${username}`);
+            const user = JSON.parse(localStorage.getItem("user"));
+            let response = await fetch(`http://localhost:3000/cart/${user.username}`);
             let responseJson = await response.json();
-            
             
             for(let i = 0; i < responseJson.cart.products.length; i++){
                 let element = responseJson.cart.products[i]
@@ -118,7 +119,8 @@ function removeProductFromCart(username, productId) {
                 method: 'DELETE',
             });
             const responseJson = await response.json();
-            return responseJson.cart;
+            responseJson.cart;
+            return cart;
         } catch (error) {
             console.error('Error:', error);
         }

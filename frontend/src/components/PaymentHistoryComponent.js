@@ -3,17 +3,20 @@ import { getPaymentHistory } from "../services/CartServices.js";
 export default async function PaymentHistoryComponent() {
     // Crear el contenedor principal
     let divRecibo = document.createElement('div');
-    divRecibo.classList.add("payment-history-container");
 
-    // Añadir el título
+    divRecibo.setAttribute("class", "divRecibo");
+    divRecibo.classList.add("payment-history-container");            
+    divRecibo.setAttribute("id", "divRecibo");
+
     let title = document.createElement('h2');
     title.innerText = "Historial de compras";
     divRecibo.appendChild(title);
 
-    // Crear el contenedor de la lista de pagos
-    let paymentList = document.createElement('div');
-    paymentList.classList.add("payment-list");
+    divRecibo.innerText += "Historial de compras ";
+    let paymentList = document.createElement('ul');
+    var res;
 
+    const user = JSON.parse(localStorage.getItem('user'));
     // Obtener el historial de pagos
     var paymentHistory = await getPaymentHistory("u0");
     console.log(paymentHistory);
@@ -72,3 +75,4 @@ export default async function PaymentHistoryComponent() {
 
     return divRecibo;
 }
+

@@ -1,4 +1,6 @@
-import { removeProductFromCart, addPaymentHistory } from "../services/CartServices.js";
+
+import { removeProductFromCart, addPaymentHistory, addProductToCart } from "../services/CartServices.js";
+
 export default function Cart(cart) {
     let cartElement = document.createElement('div');
     cartElement.classList.add("cart-container"); // Agregar clase específica al contenedor principal
@@ -12,6 +14,9 @@ export default function Cart(cart) {
     let cartList = document.createElement('div'); // Cambiar de ul a div para contenedor principal de productos
     cartList.classList.add("cart-list");
     cartElement.appendChild(cartList);
+ 
+    const user = JSON.parse(localStorage.getItem('user'));
+
 
     cart.products.forEach(product => {
         let productContainer = document.createElement('div'); // Contenedor para cada producto
@@ -41,9 +46,16 @@ export default function Cart(cart) {
         const removeButton = document.createElement('button');
         removeButton.textContent = "-";
         removeButton.classList.add("remove-button"); // Agregar clase específica al botón de eliminar
-        removeButton.onclick = () => removeProductFromCart("u0", product.id);
+        removeButton.onclick = () => {
+            removeProductFromCart(user.username, product.id);
+        }
+        const addButton = document.createElement('button');
+        addButton.textContent = "+";
+        addButton.onclick = () => {
+            addProductToCart(user.username, product.id);
+        };
         productElement.appendChild(removeButton);
-
+        productElement.appendChild(addButton);
         cartList.appendChild(productContainer);
     });
 
@@ -64,8 +76,8 @@ export default function Cart(cart) {
         divRecibo.appendChild(invoiceTitle);
 
         let paymentList = document.createElement('ul');
-        let res = await addPaymentHistory("u0");
-
+        let res = await addPaymentHistory(user.username);
+        console.log(res)
         let factura = res[res.length - 1].payment_history;
 
         let total = 0;
@@ -107,7 +119,16 @@ export default function Cart(cart) {
         document.querySelector("#cartElement").appendChild(divRecibo);
     });
 
-    cartElement.appendChild(send_button);
+    if(cart.products.length > 0){
+        cartElement.appendChild(send_button);
+    } else {
+        let emptyCart = document.createElement('h3');
+        emptyCart.innerText = "El carrito está vacío";
+        let emptyCartDescription = document.createElement('p');
+        emptyCartDescription.innerText = "Agrega productos al carrito para poder comprar";
+        cartElement.appendChild(emptyCart);
+        cartElement.appendChild(emptyCartDescription);
+    }
 
     return cartElement;
 }

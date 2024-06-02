@@ -56,4 +56,5 @@ export {
     deleteUser,
     editUser,
     getAllUsers,
+    saveUsers
 }

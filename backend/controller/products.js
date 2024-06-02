@@ -39,6 +39,7 @@ const editProduct = (id, productData) => {
 const editProductStock = (productData) => {
     const product = products.find(product => product.id === productData.id)
     product.editProductStock(productData.stock)
+    saveProducts();
     return product
 }
 

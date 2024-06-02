@@ -44,7 +44,7 @@ function Product(product) {
         const button = document.createElement('button');
         button.textContent = 'Add to Cart';
         button.classList.add('add-to-cart-btn'); // Añadir la clase para estilos
-        button.onclick = () => addProductToCart("u0", product.id);
+        button.onclick = () => addProductToCart(user.username, product.id);
         info.appendChild(button);
     }
 
