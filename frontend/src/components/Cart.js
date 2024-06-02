@@ -48,11 +48,14 @@ export default function Cart(cart) {
         removeButton.classList.add("remove-button"); // Agregar clase específica al botón de eliminar
         removeButton.onclick = () => {
             removeProductFromCart(user.username, product.id);
+            location.reload();
         }
         const addButton = document.createElement('button');
+        addButton.classList.add("add-button"); // Agregar clase específica al botón de agregar
         addButton.textContent = "+";
         addButton.onclick = () => {
             addProductToCart(user.username, product.id);
+            location.reload();
         };
         productElement.appendChild(removeButton);
         productElement.appendChild(addButton);

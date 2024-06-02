@@ -12,9 +12,7 @@ export default async function PaymentHistoryComponent() {
     title.innerText = "Historial de compras";
     divRecibo.appendChild(title);
 
-    divRecibo.innerText += "Historial de compras ";
     let paymentList = document.createElement('ul');
-    var res;
 
     const user = JSON.parse(localStorage.getItem('user'));
     // Obtener el historial de pagos
