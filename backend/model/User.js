@@ -37,7 +37,6 @@ class User {
     }
 
     getPaymentHistory(){
-        console.log(this.payment_history)
         return this.payment_history;
     }
 
