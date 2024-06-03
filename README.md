@@ -7,6 +7,18 @@
 - Santiago Castillo
 - Juan Calderón
 
+
+
+##Roles de usuario
+
+###Para el login:
+
+Solo hay un usuario de tipo administrador (usuario: admin, contraseña: admin)
+
+Para el rol de usuario puedes registrarte o usar uno que ya está agregado (usuario: user, Contraseña: user)
+
+
+
 ## Versión de Node.js necesaria
 `v20.13.1`
 

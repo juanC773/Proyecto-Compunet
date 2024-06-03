@@ -191,3 +191,55 @@
     overflow: hidden; /* Esto oculta cualquier contenido que supere el ancho máximo */
     text-overflow: ellipsis; /* Esto agrega puntos suspensivos (...) al final del texto que se recorta */
 }
+
+
+
+
+
+
+.message-container {
+    width: 50%;
+    border: 2px solid transparent; 
+    background-color: #f1efef;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto; 
+    display: block;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.message-container:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px); 
+}
+
+
+
+
+
+.empty-cart-message {
+    
+    font-size: 25px;
+
+    background-image: linear-gradient(to right, #8fb2df, #ff0000); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+
+  
+    margin-top: 45px;
+    text-align: center;
+}
+
+.empty-cart-description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    text-align: center;
+}

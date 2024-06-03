@@ -125,12 +125,27 @@ export default function Cart(cart) {
     if(cart.products.length > 0){
         cartElement.appendChild(send_button);
     } else {
-        let emptyCart = document.createElement('h3');
-        emptyCart.innerText = "El carrito está vacío";
-        let emptyCartDescription = document.createElement('p');
-        emptyCartDescription.innerText = "Agrega productos al carrito para poder comprar";
-        cartElement.appendChild(emptyCart);
-        cartElement.appendChild(emptyCartDescription);
+      
+ 
+            let messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container');
+
+       
+            let emptyCart = document.createElement('h3');
+            emptyCart.innerText = "El carrito está vacío!";
+            emptyCart.classList.add("empty-cart-message");
+
+     
+            let emptyCartDescription = document.createElement('p');
+            emptyCartDescription.innerText = "Agrega productos al carrito para poder comprar.";
+            emptyCartDescription.classList.add("empty-cart-description");
+
+
+            messageContainer.appendChild(emptyCart);
+            messageContainer.appendChild(emptyCartDescription);
+
+
+            cartElement.appendChild(messageContainer);
     }
 
     return cartElement;
