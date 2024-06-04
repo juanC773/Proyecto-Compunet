@@ -26,3 +26,8 @@ Para el rol de usuario puedes registrarte o usar uno que ya está agregado (usua
 
   "cli": "^1.0.1",
   "webpack": "^5.91.0"
+
+
+## Link del despliegue:
+
+http://cottontoil-onlineshop.up.railway.app
